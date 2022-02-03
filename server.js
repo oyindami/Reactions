@@ -1,17 +1,4 @@
-// const express = require('express');
-// const db = require('./config/connection');
-// const routes = require('./routes');
 
-// const router = require('express').Router();
-// const apiRoutes = require('./api');
-
-// router.use('/api', apiRoutes);
-
-// router.use((req, res) => {
-//   return res.send('Wrong route');
-// });
-
-// module.exports = router;
 
 const express = require("express");
 const db = require("./config/connection");
@@ -29,7 +16,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(routes);
+app.use("/api", routes);
 
 db.once("open", () => {
   app.listen(PORT, () => {
